@@ -1,4 +1,4 @@
-package ayds.tweetsearcher;
+package ayds.tweetsSearcher;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package ayds.tweetsearcher;
+package ayds.tweetsSearcher;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
