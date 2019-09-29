@@ -19,7 +19,7 @@ class ShowTweetsPresenterImp implements ShowTweetsPresenter  {
     }
 
      public void searchTweets(String username) {
-         Thread onSearch = new Thread(() -> useCaseInteractor.searchTweets("from%@" + username));
+         Thread onSearch = new Thread(() -> useCaseInteractor.searchTweets( username));
          onSearch.start();
      }
 

@@ -17,7 +17,7 @@ class TweetsRepositoryImp implements TweetsRepository {
     @Override
     public void findTweets(String query, SearchListener listener, SearchErrorListener errorListener) {
         List<Tweet> tweets = externalService.findTweets(query);
-        if (tweets.isEmpty()) {
+        if (tweets == null || tweets.isEmpty()) {
             errorListener.onError();
         } else {
             listener.onFound(externalService.findTweets(query));

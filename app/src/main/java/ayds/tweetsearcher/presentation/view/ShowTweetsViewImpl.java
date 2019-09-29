@@ -57,8 +57,8 @@ public class ShowTweetsViewImpl extends AppCompatActivity implements ShowTweetsV
     }
 
     public void showError() {
-        String message = "Error when loading tweets";
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        String message = "Sorry, we couldn't find the artist";
+        runOnUiThread(() -> Toast.makeText(this, message, Toast.LENGTH_LONG).show());
     }
 
 }

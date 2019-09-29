@@ -12,16 +12,16 @@ import java.util.List;
 class TwitterServiceImp implements TwitterService {
 
   public List<Tweet> findTweets(String query) {
-      SearchService searchService =   TwitterCore.getInstance().getApiClient().getSearchService();
-      Call<Search> search = searchService.tweets(
-              query, null, null,
-              null, null, 20,
-              null, null, null, false);
-        List<Tweet> tweets = new LinkedList<>();
+      List<Tweet> tweets = new LinkedList<>();
+
+     Call<List<Tweet>> tweetsResult = TwitterCore.getInstance().getApiClient().getStatusesService().userTimeline(
+              null, query, 20, null,
+             null, false, false,
+             false, false);
 
       try {
-          Response<Search> result = search.execute();
-          tweets = result.body().tweets;
+          Response<List<Tweet>> result = tweetsResult.execute();
+          tweets = result.body();
       } catch(Exception e) {
           System.out.println(e.getMessage());
       }
