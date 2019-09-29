@@ -1,4 +1,4 @@
-package ayds.tweetsSearcher.presentation.view;
+package ayds.tweetsearcher.presentation.view;
 
 
 import android.graphics.Color;
@@ -6,18 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import com.twitter.sdk.android.core.Twitter;
 import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.tweetui.TweetView;
 import java.util.List;
-import ayds.tweetsSearcher.presentation.presenter.ShowTweetsPresenter;
-import ayds.tweetsSearcher.R;
+import ayds.tweetsearcher.presentation.presenter.ShowTweetsPresenter;
+import ayds.tweetsearcher.R;
 
 public class ShowTweetsViewImpl extends AppCompatActivity implements ShowTweetsView {
 
     private ShowTweetsPresenter presenter;
-    private Button showTweets;
-    private LinearLayout myLayout;  //= (LinearLayout) findViewById(R.id.my_tweet_layout);
+    private Button showTweetsButton;
+    private LinearLayout myLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +37,16 @@ public class ShowTweetsViewImpl extends AppCompatActivity implements ShowTweetsV
     }
 
     private void configureUI() {
+        String buttonText = "Show latest tweets!";
+
         Twitter.initialize(this);
         setContentView(R.layout.showtweets);
-        showTweets = findViewById(R.id.search_tweets);
+        showTweetsButton = findViewById(R.id.search_tweets);
         myLayout = findViewById(R.id.layout_tweets) ;
-        showTweets.setText("Show latest tweets!");
-        showTweets.setBackgroundColor(Color.BLUE);
-        showTweets.setTextColor(Color.WHITE);
-        showTweets.setOnClickListener(e -> presenter.searchTweets("elonmusk"));
+        showTweetsButton.setText(buttonText);
+        showTweetsButton.setBackgroundColor(Color.BLUE);
+        showTweetsButton.setTextColor(Color.WHITE);
+        showTweetsButton.setOnClickListener(e -> presenter.searchTweets("elonmusk"));
     }
 
     public void showTweets( List<Tweet> tweets) {
@@ -50,6 +54,11 @@ public class ShowTweetsViewImpl extends AppCompatActivity implements ShowTweetsV
             runOnUiThread(() -> myLayout.addView(new TweetView(ShowTweetsViewImpl.this, tweet)));
         }
         runOnUiThread(() -> myLayout.setBackgroundColor(Color.RED));
+    }
+
+    public void showError() {
+        String message = "Error when loading tweets";
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
 }
