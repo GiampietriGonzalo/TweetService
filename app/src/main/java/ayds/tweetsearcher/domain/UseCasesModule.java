@@ -15,8 +15,8 @@ public class UseCasesModule {
         return instance;
     }
 
-    public FindTweets getFindTweetsUseCase(SearchTweetsInteractor interactor) {
+    public FindTweets getFindTweetsUseCase() {
         TweetsRepository repository = DataModule.getInstance().getExternalService();
-        return new FindTweetsImp(repository,interactor);
+        return new FindTweetsImp(repository);
     }
 }

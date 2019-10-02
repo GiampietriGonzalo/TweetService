@@ -18,7 +18,7 @@ public class ShowTweetsPresentationModule {
 
     public SearchTweetsInteractor getUseCaseInteractor(ShowTweetsPresenter presenter) {
         SearchTweetsInteractor useCaseInteractor = new SearchTweetsInteractorImp(presenter);
-        FindTweets useCase = UseCasesModule.getInstance().getFindTweetsUseCase(useCaseInteractor);
+        FindTweets useCase = UseCasesModule.getInstance().getFindTweetsUseCase();
         useCaseInteractor.setFindTweetsUseCase(useCase);
 
         return useCaseInteractor;

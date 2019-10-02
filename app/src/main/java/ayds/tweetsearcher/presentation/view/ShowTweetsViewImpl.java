@@ -38,6 +38,7 @@ public class ShowTweetsViewImpl extends AppCompatActivity implements ShowTweetsV
 
     private void configureUI() {
         String buttonText = "Show latest tweets!";
+        String userName ="elonmusk";
 
         Twitter.initialize(this);
         setContentView(R.layout.showtweets);
@@ -46,7 +47,7 @@ public class ShowTweetsViewImpl extends AppCompatActivity implements ShowTweetsV
         showTweetsButton.setText(buttonText);
         showTweetsButton.setBackgroundColor(Color.BLUE);
         showTweetsButton.setTextColor(Color.WHITE);
-        showTweetsButton.setOnClickListener(e -> presenter.searchTweets("elonmusk"));
+        showTweetsButton.setOnClickListener(e -> presenter.searchTweets(userName));
     }
 
     public void showTweets( List<Tweet> tweets) {

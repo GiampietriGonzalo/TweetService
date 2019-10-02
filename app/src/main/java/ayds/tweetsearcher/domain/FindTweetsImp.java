@@ -1,19 +1,18 @@
 package ayds.tweetsearcher.domain;
 
-import ayds.tweetsearcher.presentation.model.SearchTweetsInteractor;
+import ayds.tweetsearcher.domain.TweetsRepository.SearchErrorListener;
+import ayds.tweetsearcher.domain.TweetsRepository.SearchListener;
 
- class FindTweetsImp implements FindTweets {
+class FindTweetsImp implements FindTweets {
 
     private final TweetsRepository repository;
-    private final SearchTweetsInteractor useCaseInteractor;
 
-    FindTweetsImp(TweetsRepository repository, SearchTweetsInteractor useCaseInteractor){
+    FindTweetsImp(TweetsRepository repository){
         this.repository = repository;
-        this.useCaseInteractor = useCaseInteractor;
     }
 
-    public void execute(String username) {
-        repository.findTweets(username,useCaseInteractor::onTweetsFound, useCaseInteractor::onError);
+    public void execute(String username, SearchListener listener, SearchErrorListener errorListener) {
+        repository.findTweets(username, listener, errorListener);
     }
 
 }

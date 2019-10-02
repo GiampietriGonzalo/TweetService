@@ -15,7 +15,7 @@ class SearchTweetsInteractorImp implements SearchTweetsInteractor {
     }
 
     public void searchTweets(String username) {
-        findTweets.execute(username);
+        findTweets.execute(username, this::onTweetsFound, this::onError);
     }
 
     public void onTweetsFound(List<Tweet> tweets) {
