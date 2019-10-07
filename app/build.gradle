@@ -22,9 +22,6 @@ android {
         targetCompatibility = '1.8'
     }
 
-
-    dynamicFeatures = [":service"]
-
 }
 
 dependencies {

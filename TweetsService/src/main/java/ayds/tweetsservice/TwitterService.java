@@ -1,4 +1,4 @@
-package com.example.service;
+package ayds.tweetsservice;
 
 import com.twitter.sdk.android.core.models.Tweet;
 import java.util.List;

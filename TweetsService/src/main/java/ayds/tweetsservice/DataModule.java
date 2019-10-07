@@ -1,4 +1,4 @@
-package com.example.service;
+package ayds.tweetsservice;
 
 public class DataModule {
 
