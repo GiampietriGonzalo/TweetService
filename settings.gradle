@@ -1,1 +1,1 @@
-include ':app', ':tweetsservice'
+include ':app', ':service'

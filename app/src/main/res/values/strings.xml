@@ -3,4 +3,6 @@
     <string name="com.twitter.sdk.android.CONSUMER_KEY">WqybFy8myrfGeiQVrsGB2WAHM</string>
     <string name="com.twitter.sdk.android.CONSUMER_SECRET">MXNKlrYVkF433QziIOTfwWVQgoJUxU1lqJ3gXg8wk6NXUxTrou</string>
     <string name="textview">TextView</string>
+    <string name="title_dynamic_feature">TweetService</string>
+    <string name="title_service">TweetService</string>
 </resources>

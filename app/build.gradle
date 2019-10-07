@@ -21,6 +21,10 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+
+
+    dynamicFeatures = [":service"]
+
 }
 
 dependencies {
@@ -30,14 +34,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     // Include all the Twitter APIs
-    implementation ('com.twitter.sdk.android:twitter-core:3.1.1') {
+    implementation('com.twitter.sdk.android:twitter-core:3.1.1') {
         exclude module: 'support-v4'
     }
 
-    implementation ('com.twitter.sdk.android:tweet-ui:3.1.1') {
+    implementation('com.twitter.sdk.android:tweet-ui:3.1.1') {
         exclude module: 'support-v4'
     }
 
 }
-
-
